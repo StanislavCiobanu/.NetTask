@@ -1,0 +1,96 @@
+1. Via IEnumerable and IEnumerator interfaces
+
+2. Value types are stored in stack, while reference types are in the heap. In stack appears only reference to the heap.
+
+3. float and double differ only by the amount of memory they take. 
+float takes 4 bytes, double 8 bytes and that is the reason why
+double can store a bigger range floating of numbers. 
+float and double are types that represent a numeric value in binary. 
+The problem is, that with 100% accuracy can be represented only those numbers, 
+that can be represented via sum of powers of 2.
+As an example (101)2 = 1*(2^2) + 0*(2^1) + 1*(2^0) = (5)10, but if we work with 
+floating number we get this - 0.101 = 1*(2^-1) + 0*(2^-2) + 1^(2^-3) = (0.625)10
+But as an example number 0.6 can not be represented this way cause there is no 
+such a sum of powers of 2 that equals 0.6 and computer will represent it 
+approximately.
+But decimal works different. It does not store the values themself in 
+binary. It stores them as different parts of a fractional number and
+does operations for nominator and denominator separately.
+
+4. Using ref we binary copy not the value, but the reference to this value in function (This value can be a reference too).
+Out is a strict version of ref. It can not be read and must be changed in the function.
+
+5. Constant is a value, that is being placed in indicated place during the compilation. Readonly variables are fields, 
+that can be initialized after compilation (During the constructor execution).
+6.Dispose is being executed after work with class had been completed. Finalize is executed when garbage collector starts cleaning the memory.
+So if we need to break a connection with server (As an example), we use Dispose, but if we are indifferent to the time of deleting the object,
+we use Finalize.
+
+6. Finalize is called by Garbage collector, Dispose can be called by user or after 
+program exits using.
+
+7. Boxing is a process of moving a value type in heap, usually via Object type. Unboxing is a vise versa process.
+
+8. The biggest benefit is that in the end using calls Dispose methods.
+
+9. required key-word obliges us initialize property via object initializer.
+Sometimes it looks more readable than initializing it with constructor or
+if we have more than one constructor in class, there is no need in initializing 
+the property in every one of them. Property will be initialized in object initializer
+with no copy-paste arguments in constructors.
+
+10. IEnumerable and IEnumerator are interfaces for iterating objects. IEnumerable implements only GetEnumerator method and represents 
+an iterating object. IEnumerator implements methods for iterating IEnumerable objects.
+
+11. throw saves the stack trace, throw ex does not. It uses new exception's stack trace
+
+12."==" is an operator, "Equals" is a method of the Object class. By default "==" compares references (Or value for value operands), 
+"Equals" compares values for all types including reference. 
+
+13. String is a reference type. The value is stored in heap
+
+14. int has 4 bytes
+   bool has 1 byte
+   string 18 + 2 * n where n is an amount of characters
+   short 2 bytes
+   float 4 bytes		
+
+15. 18 + 33 * 2 = 84
+
+16. Class is a custom reference type. Record is also a custom reference type, but it compares by value, when class compares by reference.
+
+17. Dynamic is type that can transform from one type to another in runtime. Object is a base class for every class in C#, but working with
+a type as an Object variable does not transform it's type.
+
+18. Allows us do bitwise operations with possible values, not single
+Is useful when we need to have combinations of values
+Example:
+
+enum Color
+{
+    red = 1,    
+    green = 2, 
+    blue = 4, 
+}
+
+With flags: red | green = red, green
+Without flags: red | green = 3
+
+19. I will use decimal to have maximum accuracy in working with money.
+
+20. yield is a key word for iterating collections. It can be used in context of yield return or yield break. 
+yield return returns an element of collection and goes for other iteration of cycle. 
+yield break stops current iteration and goes to next (if it can).
+
+21. (Task is in solution)
+
+22.To look smarter and more Intelligent.
+
+23. (Task is in solution)
+
+24. (Task is in solution)
+
+25. (Task is in solution)
+
+26. (Task is in solution)
+
